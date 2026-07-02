@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+
+  --color-saffron: #E67E22; /* Royal Saffron Accent */
+  --color-gold: #C5A85C; /* Elegant Antique Champagne Gold */
+  --color-cream: #FAF7F0; /* Pure Royal Ivory Background (warm, soft light theme) */
+  --color-cream-dark: #FFFFFF; /* Crisp white cards */
+  --color-maroon: #0A3C25; /* Majestic Imperial Emerald Green */
+  --color-dark-brown: #162B1F; /* Royal Dark Forest text */
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-dark-brown);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+
+  /* Global Sophisticated overrides for Tailwind utility classes */
+  .bg-white {
+    background-color: #FFFFFF !important;
+  }
+
+  .bg-\[\#FFF8EE\] {
+    background-color: var(--color-cream) !important;
+  }
+
+  .bg-cream\/50 {
+    background-color: rgba(250, 247, 240, 0.5) !important;
+  }
+
+  .bg-cream-dark\/15 {
+    background-color: rgba(244, 239, 230, 0.45) !important;
+  }
+
+  /* Remap specific dark sections to deep emerald to maintain the luxury tone */
+  .bg-\[\#1E120C\] {
+    background-color: #052617 !important; /* Deep Forest Emerald */
+    color: #FAF7F0 !important;
+  }
+
+  .bg-\[\#140B07\] {
+    background-color: #03180E !important; /* Midnight Forest Green */
+  }
+
+  /* Ensure inputs, selects, and textareas integrate perfectly into the theme */
+  input, select, textarea {
+    background-color: #FFFFFF !important;
+    color: var(--color-dark-brown) !important;
+    border: 1px solid rgba(197, 168, 92, 0.3) !important;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--color-maroon) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 1px var(--color-maroon) !important;
+  }
+
+  /* Dropdown option text coloring */
+  option {
+    background-color: #FFFFFF !important;
+    color: var(--color-dark-brown) !important;
+  }
+
+  /* Soften general borders across the site to transparent gold */
+  .border, .border-t, .border-b, .border-l, .border-r {
+    border-color: rgba(197, 168, 92, 0.15);
+  }
+
+  .border-gold\/15, .border-gold\/10, .border-gold\/20, .border-gold\/30, .border-gold\/40 {
+    border-color: rgba(197, 168, 92, 0.25) !important;
+  }
+
+  /* Soften shadow styling for clean, elegant depth */
+  .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(10, 60, 37, 0.04) !important;
+  }
+  .shadow {
+    box-shadow: 0 4px 6px -1px rgba(10, 60, 37, 0.05), 0 2px 4px -1px rgba(10, 60, 37, 0.03) !important;
+  }
+  .shadow-md {
+    box-shadow: 0 4px 20px -2px rgba(10, 60, 37, 0.06) !important;
+  }
+  .shadow-lg {
+    box-shadow: 0 10px 25px -5px rgba(10, 60, 37, 0.08) !important;
+  }
+  .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(10, 60, 37, 0.1) !important;
+  }
+  .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(10, 60, 37, 0.12) !important;
+  }
+
+  /* Scrollbar override for theme consistency */
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream) !important;
+  }
+}
+
+/* Custom golden gradient */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #0A3C25 0%, #C5A85C 50%, #E67E22 100%);
+}
+
+.bg-gold-gradient-hover {
+  background: linear-gradient(135deg, #E67E22 0%, #C5A85C 50%, #0A3C25 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #E67E22 0%, #C5A85C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A85C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0A3C25;
+}
+

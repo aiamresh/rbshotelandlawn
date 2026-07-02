@@ -1,0 +1,6 @@
+{
+  "name": "RBS Hotel and Lawn",
+  "description": "A premium luxury hotel, wedding lawn, banquet hall, and pure veg restaurant in Ayodhya, Uttar Pradesh, offering royal hospitality near Ram Mandir.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

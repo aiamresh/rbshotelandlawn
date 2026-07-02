@@ -1,0 +1,5 @@
+# Robots.txt file for RBS Hotel and Lawn, Ayodhya
+User-agent: *
+Allow: /
+
+Sitemap: https://rbshotelayodhya.in/sitemap.xml
