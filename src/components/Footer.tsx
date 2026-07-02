@@ -194,7 +194,9 @@ export default function Footer({ onPageChange }: FooterProps) {
               <Globe size={14} className="text-gold mt-0.5 shrink-0" />
               <div>
                 <span className="block font-semibold text-gold">Web Address</span>
-                <span className="text-[#FFF8EE]/70">www.rbshotelayodhya.in</span>
+                <a href="https://www.rbshotelandlawn.com" target="_blank" rel="noopener noreferrer" className="text-[#FFF8EE]/70 hover:text-saffron transition-colors">
+                  www.rbshotelandlawn.com
+                </a>
               </div>
             </li>
           </ul>
