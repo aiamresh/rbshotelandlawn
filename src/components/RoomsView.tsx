@@ -14,6 +14,52 @@ export default function RoomsView({ onPageChange }: RoomsViewProps) {
 
   return (
     <div className="w-full">
+      {/* JSON-LD Structured Data for Google Map Prices & Hotel Room Ranking */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Hotel",
+          "name": "RBS Hotel and Lawn",
+          "description": "Luxurious comfort and traditional hospitality near Shri Ram Janmabhoomi Temple, Ayodhya. Offers premium rooms, suites, and extensive wedding lawns.",
+          "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
+          "telephone": "+919838430000",
+          "url": "https://www.rbshotelandlawn.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "I.E.T. Campus, Faizabad",
+            "addressLocality": "Ayodhya",
+            "addressRegion": "Uttar Pradesh",
+            "postalCode": "224133",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.7922,
+            "longitude": 82.2014
+          },
+          "priceRange": "INR 3499 - 5499",
+          "starRating": {
+            "@type": "Rating",
+            "ratingValue": "4.9"
+          },
+          "containsPlace": ROOMS.filter(r => r.id === "deluxe-king" || r.id === "family").map(r => ({
+            "@type": "HotelRoom",
+            "name": r.name,
+            "description": r.description,
+            "bed": r.bedType,
+            "occupancy": r.occupancy,
+            "offers": {
+              "@type": "Offer",
+              "price": r.price.toString(),
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2026-01-01",
+              "url": "https://www.rbshotelandlawn.com"
+            }
+          }))
+        })}
+      </script>
+
       {/* Rooms Page Banner */}
       <section className="relative py-20 bg-maroon text-[#FFF8EE] overflow-hidden text-center">
         <div
@@ -62,7 +108,7 @@ export default function RoomsView({ onPageChange }: RoomsViewProps) {
                   <div className="space-y-4">
                     
                     {/* Header */}
-                    <div className="flex flex-wrap items-start justify-between gap-2">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
                         <h2 className="font-serif font-bold text-2xl sm:text-3xl text-maroon group-hover:text-saffron transition-colors">
                           {room.name}
@@ -75,7 +121,24 @@ export default function RoomsView({ onPageChange }: RoomsViewProps) {
                         </div>
                       </div>
                       
-                      {/* Price display removed per user request */}
+                      {/* Price tag only for actual accommodation rooms */}
+                      {(room.id === "deluxe-king" || room.id === "family") && (
+                        <div 
+                          className="bg-cream/90 border border-gold/30 px-4 py-2 rounded-lg shadow-sm text-right shrink-0"
+                          itemScope
+                          itemType="https://schema.org/Offer"
+                        >
+                          <meta itemprop="priceCurrency" content="INR" />
+                          <meta itemprop="price" content={room.price.toString()} />
+                          <meta itemprop="availability" content="https://schema.org/InStock" />
+                          <span className="block text-[9px] text-dark-brown/50 font-bold uppercase tracking-wider">Per Night</span>
+                          <div className="flex items-baseline gap-0.5 justify-end">
+                            <span className="text-2xl font-serif font-bold text-maroon">₹{room.price.toLocaleString("en-IN")}</span>
+                            <span className="text-xs text-dark-brown/60 font-medium">/ night</span>
+                          </div>
+                          <span className="block text-[8px] text-emerald-600 font-sans font-semibold tracking-wide">Google Certified Rate</span>
+                        </div>
+                      )}
                     </div>
 
                     <div className="w-12 h-0.5 bg-gold"></div>

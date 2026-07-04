@@ -39,7 +39,7 @@ export default function ContactView() {
         <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 to-[#140B07] z-10" />
         <div className="relative z-20 max-w-4xl mx-auto px-4">
           <span className="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-2">Connect with us</span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-cream">Contact RBS Hotel</h1>
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-cream">Contact RBS Hotel and Lawn</h1>
           <div className="w-16 h-0.5 bg-gold mx-auto mt-4 mb-3"></div>
           <p className="text-[#FFF8EE]/80 text-sm sm:text-base max-w-xl mx-auto">
             Reach out to our reservations desk, event planners, or management for inquiries, custom bookings, and local guides.

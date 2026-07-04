@@ -26,26 +26,7 @@ export default function AboutView() {
     },
   ];
 
-  const management = [
-    {
-      name: "Mr. Rajendra Bahadur Singh (RBS)",
-      role: "Founder & Chairman",
-      desc: "A visionary entrepreneur dedicated to elevating hospitality in Ayodhya. Built RBS Hotel and Lawn as a signature contribution to the sacred city's cultural boom.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      name: "Mrs. Savitri Singh",
-      role: "Managing Director",
-      desc: "Ensures the hospitality standards and traditional values of 'Atithi Devo Bhava' are meticulously woven into every guest interaction.",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      name: "Mr. Amit Pratap Singh",
-      role: "General Manager of Operations",
-      desc: "Brings over 15 years of premium hospitality management. Directly oversees the grand wedding lawn events, guest relations, and culinary hygiene.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
-    },
-  ];
+
 
   return (
     <div className="w-full">
@@ -57,7 +38,7 @@ export default function AboutView() {
         <div className="absolute inset-0 bg-gradient-to-r from-maroon/90 to-[#140B07] z-10" />
         <div className="relative z-20 max-w-4xl mx-auto px-4">
           <span className="text-gold text-xs font-bold uppercase tracking-[0.3em] block mb-2">Our Heritage</span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-cream">About RBS Hotel & Lawn</h1>
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-cream">About RBS Hotel and Lawn</h1>
           <div className="w-16 h-0.5 bg-gold mx-auto mt-4 mb-3"></div>
           <p className="text-[#FFF8EE]/80 text-sm sm:text-base max-w-xl mx-auto">
             Discover how we blend royal hospitality with spiritual tranquility to craft Ayodhya's finest lodging experience.
@@ -117,7 +98,7 @@ export default function AboutView() {
                   Constructed with beautiful sandstone finishes, heavy warm teakwood, and shimmering gold accents, the hotel operates under a strict code of clean satvik standards. Our grand 25,000+ square foot wedding lawn with a capacity of 2,000 to 2,500 guests and the premium <strong>Banquet Hall</strong> represent Ayodhya's finest event complexes.
                 </p>
                 <p>
-                  At RBS, we don't just provide rooms; we provide a curated spiritual retreat. From organizing fast-track VIP temple darshans and river Saryu Aarti boat rides to providing pristine sound-insulated suites, we look after every minor detail so you can focus entirely on your divine journey.
+                  At RBS Hotel and Lawn, we don't just provide rooms; we provide a curated spiritual retreat. From organizing fast-track VIP temple darshans and river Saryu Aarti boat rides to providing pristine sound-insulated suites, we look after every minor detail so you can focus entirely on your divine journey.
                 </p>
               </div>
 
@@ -195,44 +176,7 @@ export default function AboutView() {
         </div>
       </section>
 
-      {/* Management Column Section */}
-      <section className="py-16 bg-cream-dark/15 border-t border-gold/15">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-saffron font-bold block mb-2">The Leadership</span>
-            <h2 className="text-3xl font-serif font-bold text-maroon">Our Management Team</h2>
-            <div className="w-16 h-0.5 bg-gold mx-auto mt-3"></div>
-            <p className="text-dark-brown/70 text-sm mt-3.5">
-              Meet the passionate guardians of RBS Hotel and Lawn, dedicated to making your visit flawlessly satisfying.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {management.map((m, idx) => (
-              <div
-                key={idx}
-                className="bg-[#FFF8EE] rounded-xl overflow-hidden border border-gold/15 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full text-center p-6"
-              >
-                <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-gold mx-auto mb-4 shrink-0 shadow-inner">
-                  <img
-                    src={m.image}
-                    alt={m.name}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="space-y-1 flex-grow">
-                  <h3 className="font-serif font-bold text-lg text-maroon">{m.name}</h3>
-                  <span className="text-xs text-saffron font-bold uppercase tracking-wider block">{m.role}</span>
-                  <p className="text-xs text-dark-brown/70 leading-relaxed pt-3">
-                    {m.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

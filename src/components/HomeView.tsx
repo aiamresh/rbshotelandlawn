@@ -83,6 +83,52 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
 
   return (
     <div className="w-full">
+      {/* JSON-LD Structured Data for Google Map Prices & Hotel Room Ranking */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Hotel",
+          "name": "RBS Hotel and Lawn",
+          "description": "Luxurious comfort and traditional hospitality near Shri Ram Janmabhoomi Temple, Ayodhya. Offers premium rooms, suites, and extensive wedding lawns.",
+          "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
+          "telephone": "+919838430000",
+          "url": "https://www.rbshotelandlawn.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "I.E.T. Campus, Faizabad",
+            "addressLocality": "Ayodhya",
+            "addressRegion": "Uttar Pradesh",
+            "postalCode": "224133",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.7922,
+            "longitude": 82.2014
+          },
+          "priceRange": "INR 3499 - 5499",
+          "starRating": {
+            "@type": "Rating",
+            "ratingValue": "4.9"
+          },
+          "containsPlace": ROOMS.filter(r => r.id === "deluxe-king" || r.id === "family").map(r => ({
+            "@type": "HotelRoom",
+            "name": r.name,
+            "description": r.description,
+            "bed": r.bedType,
+            "occupancy": r.occupancy,
+            "offers": {
+              "@type": "Offer",
+              "price": r.price.toString(),
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2026-01-01",
+              "url": "https://www.rbshotelandlawn.com"
+            }
+          }))
+        })}
+      </script>
+
       {/* 1. HERO SECTION */}
       <section className="relative w-full min-h-[90vh] lg:h-[95vh] flex items-center justify-center overflow-hidden">
         {/* Background Image - Removed per user request */}
@@ -97,8 +143,8 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
           {/* Left Side: Brand Header & Features */}
           <div className="lg:col-span-7 space-y-6 text-[#FFF8EE] text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-wide leading-tight text-cream">
-              Experience Royal <br className="hidden lg:inline"/>
-              <span className="text-saffron">Hospitality</span> in Ayodhya
+              RBS Hotel and Lawn <br className="hidden lg:inline"/>
+              <span className="text-saffron">Royal Hospitality</span> in Ayodhya
             </h1>
             
             <p className="text-lg sm:text-xl font-serif italic text-gold/95 tracking-wide">
@@ -273,12 +319,29 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
                 {/* Content */}
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-3.5">
-                    <div className="flex justify-between items-center">
-                      <h3 className="font-serif font-bold text-xl text-maroon">{room.name}</h3>
-                      <div className="flex items-center gap-0.5 text-gold">
-                        <Star size={14} className="fill-gold" />
-                        <span className="text-xs font-semibold">{room.rating}</span>
+                    <div className="flex justify-between items-start gap-3">
+                      <div>
+                        <h3 className="font-serif font-bold text-xl text-maroon">{room.name}</h3>
+                        <div className="flex items-center gap-1 text-gold mt-1">
+                          <Star size={13} className="fill-gold" />
+                          <span className="text-xs font-semibold text-dark-brown/60">({room.rating})</span>
+                        </div>
                       </div>
+                      
+                      {/* Price tag only for actual accommodation rooms */}
+                      {(room.id === "deluxe-king" || room.id === "family") && (
+                        <div 
+                          className="bg-cream/90 border border-gold/30 px-2.5 py-1 rounded shadow-sm text-right shrink-0"
+                          itemScope
+                          itemType="https://schema.org/Offer"
+                        >
+                          <meta itemprop="priceCurrency" content="INR" />
+                          <meta itemprop="price" content={room.price.toString()} />
+                          <meta itemprop="availability" content="https://schema.org/InStock" />
+                          <span className="block text-[8px] text-dark-brown/50 font-bold uppercase tracking-wider">Per Night</span>
+                          <span className="block text-base font-serif font-bold text-maroon leading-none mt-0.5">₹{room.price.toLocaleString("en-IN")}</span>
+                        </div>
+                      )}
                     </div>
                     <p className="text-xs text-dark-brown/70 line-clamp-3 leading-relaxed">
                       {room.description}

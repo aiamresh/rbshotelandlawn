@@ -8,14 +8,13 @@ import GalleryView from "./components/GalleryView";
 import GuideView from "./components/GuideView";
 import ContactView from "./components/ContactView";
 import BookOnlineView from "./components/BookOnlineView";
-import { MessageCircle, Phone, ArrowUp, Sparkles, Compass } from "lucide-react";
+import { MessageCircle, Phone, Sparkles, Compass } from "lucide-react";
 import { HOTEL_DETAILS } from "./data";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>("home");
   const [bookingState, setBookingState] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
 
   // Simulate brand loading screen
   useEffect(() => {
@@ -25,19 +24,6 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Show Back To Top Button on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setShowBackToTop(true);
-      } else {
-        setShowBackToTop(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const handlePageChange = (page: string, bookingParams?: any) => {
     setCurrentPage(page);
     if (bookingParams) {
@@ -45,10 +31,6 @@ export default function App() {
     } else {
       setBookingState(null);
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -154,17 +136,7 @@ export default function App() {
         </span>
       </a>
 
-      {/* 3. Back To Top Floating Action */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-40 bg-white hover:bg-gold-gradient text-maroon hover:text-cream p-3.5 rounded-full shadow-2xl border border-gold/20 hover:border-gold/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer"
-          aria-label="Scroll back to top"
-          id="back-to-top-btn"
-        >
-          <ArrowUp size={22} className="stroke-[2.5]" />
-        </button>
-      )}
+
 
       {/* Premium subtle visual banner helper (Fixed at the bottom right during simple page-views) */}
       <div className="fixed bottom-24 right-6 z-40 hidden xl:flex items-center gap-2 bg-[#FFF8EE]/90 backdrop-blur-md border border-gold/20 px-3.5 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow">
