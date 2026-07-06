@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Phone, Mail, MapPin, Send, MessageSquare, Compass, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, MessageSquare, Compass, ShieldCheck, Sparkles, CheckCircle2, ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { HOTEL_DETAILS } from "../data";
 
 export default function ContactView() {
@@ -11,6 +11,35 @@ export default function ContactView() {
   
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const [activeFaq, setActiveFaq] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      q: "What is the distance of RBS Hotel and Lawn from the sacred Ram Janmabhoomi Mandir?",
+      a: "RBS Hotel and Lawn is located strategically just 8 to 10 minutes away from the Shri Ram Janmabhoomi Temple. Its location on the Faizabad Bypass Highway makes it highly accessible for pilgrims arriving from Lucknow, Gorakhpur, or Varanasi without getting stuck in city traffic."
+    },
+    {
+      q: "How can I book a room, wedding banquet, or lawn online?",
+      a: "You can book easily online by clicking the 'Book Online' button on our header, or by calling our reservations team directly. For grand weddings and bulk bookings, you can submit an inquiry form on this Contact page or reach out via our official WhatsApp desk for custom packages."
+    },
+    {
+      q: "What is the guest capacity of the grand marriage lawn and banquet hall?",
+      a: "Our majestic 25,000+ sq. ft. lush green outdoor lawn has a guest capacity of 2,000 to 2,500 people, making it Ayodhya's premier event space. Additionally, our indoor centralized AC Banquet Hall can easily accommodate large gathering celebrations, corporate meets, or social kitty parties."
+    },
+    {
+      q: "Is the dining prepared according to satvik and pure vegetarian standards?",
+      a: "Yes, absolutely. RBS Hotel and Lawn strictly operates under clean Satvik guidelines. Our signature multi-cuisine restaurant, Naivedyam, serves 100% pure vegetarian gourmet meals crafted with fresh ingredients under pristine hygiene conditions."
+    },
+    {
+      q: "What are the standard check-in and check-out timings?",
+      a: "Our standard check-in time is 12:00 PM and check-out is 11:00 AM. Early check-in or late check-out requests are subject to availability and can be arranged by notifying our front desk manager in advance."
+    },
+    {
+      q: "Is secure parking space available for cars and buses?",
+      a: "Yes, we provide plenty of secure, private on-site parking spaces absolutely free of charge for both two-wheelers and four-wheelers (including heavy pilgrim tour buses) secured by round-the-clock CCTV cameras and security guards."
+    }
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -284,6 +313,81 @@ export default function ContactView() {
           </div>
         </div>
       </section>
+
+      {/* Structured Google FAQ section designed for ranking */}
+      <section className="py-16 bg-[#FFF8EE] border-t border-gold/15">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <div className="text-center space-y-3 mb-10">
+            <div className="flex items-center justify-center gap-2">
+              <HelpCircle className="text-saffron shrink-0" size={20} />
+              <span className="text-xs uppercase tracking-[0.25em] text-saffron font-bold">FAQS & Travel Guide</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-maroon">Frequently Asked Questions</h2>
+            <div className="w-16 h-0.5 bg-gold mx-auto"></div>
+            <p className="text-dark-brown/75 text-sm max-w-xl mx-auto leading-relaxed">
+              Find instant answers regarding reservations, event capacities, spiritual darshans, and logistics at <strong>RBS Hotel and Lawn, Ayodhya</strong>.
+            </p>
+          </div>
+
+          {/* Interactive Accordion */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = activeFaq === index;
+              return (
+                <div
+                  key={index}
+                  className="bg-white border border-gold/15 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setActiveFaq(isOpen ? null : index)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-serif font-bold text-sm sm:text-base text-maroon hover:bg-[#FFF8EE]/30 transition-colors cursor-pointer"
+                  >
+                    <span>{faq.q}</span>
+                    <span className="text-saffron shrink-0">
+                      {isOpen ? <ChevronUp size={18} className="stroke-[2.5]" /> : <ChevronDown size={18} className="stroke-[2.5]" />}
+                    </span>
+                  </button>
+
+                  <div
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      isOpen ? "max-h-60 border-t border-gold/10" : "max-h-0"
+                    }`}
+                  >
+                    <div className="p-6 text-xs sm:text-sm text-dark-brown/80 leading-relaxed bg-[#FFF8EE]/10">
+                      {faq.a}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-10 p-5 bg-white border border-gold/10 rounded-xl max-w-2xl mx-auto">
+            <p className="text-xs text-dark-brown/60 leading-relaxed">
+              Still have a specific query about your upcoming pilgrimage or event booking? Feel free to call us directly or click the WhatsApp action to chat with our general desk manager.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SEO Schema.org FAQPage Structured Data Metadata */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.a
+            }
+          }))
+        })}
+      </script>
     </div>
   );
 }
