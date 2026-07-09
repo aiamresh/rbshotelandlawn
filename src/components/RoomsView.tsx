@@ -128,9 +128,9 @@ export default function RoomsView({ onPageChange }: RoomsViewProps) {
                           itemScope
                           itemType="https://schema.org/Offer"
                         >
-                          <meta itemprop="priceCurrency" content="INR" />
-                          <meta itemprop="price" content={room.price.toString()} />
-                          <meta itemprop="availability" content="https://schema.org/InStock" />
+                          <meta itemProp="priceCurrency" content="INR" />
+                          <meta itemProp="price" content={room.price.toString()} />
+                          <meta itemProp="availability" content="https://schema.org/InStock" />
                           <span className="block text-[9px] text-dark-brown/50 font-bold uppercase tracking-wider">Per Night</span>
                           <div className="flex items-baseline gap-0.5 justify-end">
                             <span className="text-2xl font-serif font-bold text-maroon">₹{room.price.toLocaleString("en-IN")}</span>

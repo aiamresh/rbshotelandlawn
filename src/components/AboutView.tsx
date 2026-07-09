@@ -434,7 +434,7 @@ Overall it was a good experience with my friends 🧡 had a great eve..`,
           
           {/* Header */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-            <div className="text-center md:text-left space-y-2">
+            <div className="text-center md:text-left space-y-2 w-full">
               <div className="flex items-center justify-center md:justify-start gap-2.5">
                 <span className="inline-flex items-center justify-center bg-white px-2.5 py-1 rounded-md text-xs font-bold text-blue-600 shadow-sm border border-gray-100 select-none">
                   Google
@@ -446,36 +446,6 @@ Overall it was a good experience with my friends 🧡 had a great eve..`,
               <p className="text-dark-brown/75 text-sm">
                 Real feedback from our treasured guests ranking <strong>RBS Hotel and Lawn</strong> as Ayodhya's top destination.
               </p>
-            </div>
-
-            {/* Google Rating Showcase Box */}
-            <div className="bg-[#FFF8EE] border border-gold/20 p-5 rounded-xl shadow-md flex items-center gap-5 shrink-0 max-w-sm w-full md:w-auto">
-              <div className="text-center shrink-0">
-                <div className="text-4.5xl font-serif font-extrabold text-maroon leading-none">4.9</div>
-                <div className="flex items-center justify-center gap-0.5 text-gold mt-1.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} className="fill-gold stroke-gold" />
-                  ))}
-                </div>
-                <span className="text-[10px] text-dark-brown/50 font-bold uppercase tracking-wider block mt-1">248+ Ratings</span>
-              </div>
-              <div className="h-12 w-px bg-gold/20"></div>
-              <div className="space-y-2.5">
-                <div className="text-xs text-dark-brown/80 font-medium">
-                  Verified rating on Google Maps and search results.
-                </div>
-                <button
-                  onClick={() => {
-                    setIsModalOpen(true);
-                    setSuccessMsg("");
-                    setErrorMsg("");
-                  }}
-                  className="w-full inline-flex items-center justify-center gap-1.5 bg-maroon hover:bg-saffron text-white hover:text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 shadow hover:shadow-md cursor-pointer"
-                >
-                  <Plus size={14} />
-                  <span>Import Google Review</span>
-                </button>
-              </div>
             </div>
           </div>
 
@@ -525,37 +495,6 @@ Overall it was a good experience with my friends 🧡 had a great eve..`,
 
                 {/* Author Info */}
                 <div className="flex items-center gap-3 pt-3 border-t border-gold/10">
-                  <div className="relative w-10 h-10 shrink-0">
-                    {r.id === "g-1" ? (
-                      <div className="w-full h-full rounded-full bg-[#C2185B] flex items-center justify-center text-white font-sans font-bold text-lg select-none shadow-inner border border-white/10">
-                        S
-                      </div>
-                    ) : (
-                      <div className="w-full h-full rounded-full overflow-hidden bg-gold/15 border border-gold/30 flex items-center justify-center">
-                        <img
-                          src={r.profile_photo_url}
-                          alt={r.author_name}
-                          className="w-full h-full object-cover"
-                          referrerPolicy="no-referrer"
-                          onError={(e) => {
-                            // Fallback image using dicebear initials
-                            (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(r.author_name)}`;
-                          }}
-                        />
-                      </div>
-                    )}
-                    
-                    {/* Google Local Guide overlay badge for g-1 or verified reviewer */}
-                    {(r.id === "g-1" || r.id === "g-2" || r.id === "g-3" || r.id === "g-4") && (
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-white p-[1.5px] flex items-center justify-center shadow-md z-10">
-                        <div className="w-full h-full rounded-full bg-gradient-to-tr from-[#FFB300] via-[#FF5722] to-[#00ACC1] flex items-center justify-center">
-                          <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 fill-white text-white">
-                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                          </svg>
-                        </div>
-                      </div>
-                    )}
-                  </div>
                   <div>
                     <h4 className="font-serif font-bold text-sm text-maroon">{r.author_name}</h4>
                     <span className="text-[11px] text-dark-brown/50">{r.relative_time_description}</span>

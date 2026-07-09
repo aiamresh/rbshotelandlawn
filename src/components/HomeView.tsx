@@ -335,9 +335,9 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
                           itemScope
                           itemType="https://schema.org/Offer"
                         >
-                          <meta itemprop="priceCurrency" content="INR" />
-                          <meta itemprop="price" content={room.price.toString()} />
-                          <meta itemprop="availability" content="https://schema.org/InStock" />
+                          <meta itemProp="priceCurrency" content="INR" />
+                          <meta itemProp="price" content={room.price.toString()} />
+                          <meta itemProp="availability" content="https://schema.org/InStock" />
                           <span className="block text-[8px] text-dark-brown/50 font-bold uppercase tracking-wider">Per Night</span>
                           <span className="block text-base font-serif font-bold text-maroon leading-none mt-0.5">₹{room.price.toLocaleString("en-IN")}</span>
                         </div>
