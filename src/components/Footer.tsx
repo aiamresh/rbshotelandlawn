@@ -139,6 +139,24 @@ export default function Footer({ onPageChange }: FooterProps) {
                 <span>Contact us</span>
               </button>
             </li>
+            <li>
+              <button
+                onClick={() => handleLinkClick("policies")}
+                className="flex items-center gap-2 group hover:text-saffron transition-colors cursor-pointer"
+              >
+                <ChevronRight size={12} className="text-gold" />
+                <span>Terms & Conditions</span>
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handleLinkClick("policies")}
+                className="flex items-center gap-2 group hover:text-saffron transition-colors cursor-pointer"
+              >
+                <ChevronRight size={12} className="text-gold" />
+                <span>Cancellation Policy</span>
+              </button>
+            </li>
           </ul>
 
           <div className="mt-6 border-t border-gold/15 pt-4">

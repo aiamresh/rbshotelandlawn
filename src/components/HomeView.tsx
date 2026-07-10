@@ -91,7 +91,7 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
           "name": "RBS Hotel and Lawn",
           "description": "Luxurious comfort and traditional hospitality near Shri Ram Janmabhoomi Temple, Ayodhya. Offers premium rooms, suites, and extensive wedding lawns.",
           "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
-          "telephone": "+919838430000",
+          "telephone": "+917570000335",
           "url": "https://www.rbshotelandlawn.com",
           "address": {
             "@type": "PostalAddress",
@@ -382,7 +382,7 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
                     </button>
                     {room.id === "royal-darbar" || room.id === "siddharth-banquet" ? (
                       <a
-                        href={`https://wa.me/919838430000?text=${encodeURIComponent(`Hello! I am interested in booking the ${room.name} at RBS Hotel and Lawn.`)}`}
+                        href={`https://wa.me/917570000335?text=${encodeURIComponent(`Hello! I am interested in booking the ${room.name} at RBS Hotel and Lawn.`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold tracking-widest py-2.5 rounded shadow hover:opacity-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5"
@@ -583,11 +583,11 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
               </div>
               <div className="p-6 pt-0">
                 <button
-                  onClick={() => window.open(`https://wa.me/919838430000?text=${encodeURIComponent("Hello! I am interested in planning a Banquet Hall event at RBS Hotel and Lawn.")}`, "_blank")}
+                  onClick={() => window.open(`https://wa.me/917570000335?text=${encodeURIComponent("Hello! I am interested in planning a Banquet Hall event at RBS Hotel and Lawn.")}`, "_blank")}
                   className="w-full bg-gold-gradient text-cream hover:opacity-90 font-bold text-xs uppercase tracking-widest py-3 rounded shadow-md border border-gold/40 flex items-center justify-center gap-2 cursor-pointer transition-all"
                 >
                   <MessageCircle size={15} className="stroke-[2.5]" />
-                  PLAN BANQUET EVENT: +91 9838430000
+                  PLAN BANQUET EVENT: +91 7570000335
                 </button>
               </div>
             </div>

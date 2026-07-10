@@ -8,6 +8,7 @@ import GalleryView from "./components/GalleryView";
 import GuideView from "./components/GuideView";
 import ContactView from "./components/ContactView";
 import BookOnlineView from "./components/BookOnlineView";
+import PoliciesView from "./components/PoliciesView";
 import { MessageCircle, Phone, Sparkles, Compass } from "lucide-react";
 import { HOTEL_DETAILS } from "./data";
 
@@ -96,6 +97,7 @@ export default function App() {
         {currentPage === "gallery" && <GalleryView />}
         {currentPage === "guide" && <GuideView />}
         {currentPage === "contact" && <ContactView />}
+        {currentPage === "policies" && <PoliciesView />}
         {currentPage === "book-online" && (
           <BookOnlineView initialBookingState={bookingState} onPageChange={handlePageChange} />
         )}

@@ -22,7 +22,7 @@ export default function RoomsView({ onPageChange }: RoomsViewProps) {
           "name": "RBS Hotel and Lawn",
           "description": "Luxurious comfort and traditional hospitality near Shri Ram Janmabhoomi Temple, Ayodhya. Offers premium rooms, suites, and extensive wedding lawns.",
           "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
-          "telephone": "+919838430000",
+          "telephone": "+917570000335",
           "url": "https://www.rbshotelandlawn.com",
           "address": {
             "@type": "PostalAddress",
@@ -211,7 +211,7 @@ export default function RoomsView({ onPageChange }: RoomsViewProps) {
                     <div className="flex gap-3 w-full sm:w-auto shrink-0">
                       {room.id === "royal-darbar" || room.id === "siddharth-banquet" ? (
                         <a
-                          href={`https://wa.me/919838430000?text=${encodeURIComponent(`Hello! I am interested in booking the ${room.name} at RBS Hotel and Lawn.`)}`}
+                          href={`https://wa.me/917570000335?text=${encodeURIComponent(`Hello! I am interested in booking the ${room.name} at RBS Hotel and Lawn.`)}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold tracking-widest px-8 py-3 rounded shadow-md active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
