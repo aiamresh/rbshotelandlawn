@@ -238,15 +238,17 @@ Overall it was a good experience with my friends 🧡 had a great eve..`,
 
   return (
     <div className="w-full">
-      {/* Dynamic Schema.org JSON-LD for Search Engine Ratings & Google Map Integration */}
+      {/* Dynamic Advanced Combined Schema.org JSON-LD for Hotel & LocalBusiness */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Hotel",
+          "@type": ["Hotel", "LocalBusiness"],
           "name": "RBS Hotel and Lawn",
           "url": "https://www.rbshotelandlawn.com",
           "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
-          "description": "Luxurious comfort, centralized AC banquets, and a grand 25,000+ sq ft lush wedding lawn near Ram Mandir Highway, Ayodhya.",
+          "description": "Luxurious comfort, premium rooms, suites, 100% pure vegetarian dining, grand banquets, and extensive wedding lawns near Shri Ram Janmabhoomi Temple, Ayodhya.",
+          "telephone": "+917570000335",
+          "email": "info@rbshotelandlawn.com",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "I.E.T. Campus, Faizabad Bypass Highway",
@@ -255,13 +257,65 @@ Overall it was a good experience with my friends 🧡 had a great eve..`,
             "postalCode": "224133",
             "addressCountry": "IN"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 26.7922,
+            "longitude": 82.2014
+          },
+          "priceRange": "INR 3499 - 5499",
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "reviewCount": (248 + (reviews.length > 4 ? reviews.length - 4 : 0)).toString(),
             "bestRating": "5",
             "worstRating": "1"
           },
+          "starRating": {
+            "@type": "Rating",
+            "ratingValue": "4.8"
+          },
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Free High-Speed Wi-Fi",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Naivedyam Pure Veg Restaurant",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Secure Private Parking (Complimentary)",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Grand Wedding Lawn & Centralized Banquet Hall",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "24/7 Front Desk Reception",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Air Conditioning",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Room Service & Cleanliness Standards",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Wheelchair Accessible",
+              "value": true
+            }
+          ],
           "review": reviews.map(r => ({
             "@type": "Review",
             "author": {

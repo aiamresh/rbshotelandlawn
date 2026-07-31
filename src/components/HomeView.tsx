@@ -83,15 +83,16 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
 
   return (
     <div className="w-full">
-      {/* JSON-LD Structured Data for Google Map Prices & Hotel Room Ranking */}
+      {/* Advanced Combined JSON-LD Structured Data for Hotel & LocalBusiness */}
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Hotel",
+          "@type": ["Hotel", "LocalBusiness"],
           "name": "RBS Hotel and Lawn",
-          "description": "Luxurious comfort and traditional hospitality near Shri Ram Janmabhoomi Temple, Ayodhya. Offers premium rooms, suites, and extensive wedding lawns.",
+          "description": "Luxurious comfort, premium rooms, suites, 100% pure vegetarian dining, grand banquets, and extensive wedding lawns near Shri Ram Janmabhoomi Temple, Ayodhya.",
           "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
           "telephone": "+917570000335",
+          "email": "info@rbshotelandlawn.com",
           "url": "https://www.rbshotelandlawn.com",
           "address": {
             "@type": "PostalAddress",
@@ -107,10 +108,59 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
             "longitude": 82.2014
           },
           "priceRange": "INR 3499 - 5499",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "248"
+          },
           "starRating": {
             "@type": "Rating",
-            "ratingValue": "4.9"
+            "ratingValue": "4.8"
           },
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Free High-Speed Wi-Fi",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Naivedyam Pure Veg Restaurant",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Secure Private Parking (Complimentary)",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Grand Wedding Lawn & Centralized Banquet Hall",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "24/7 Front Desk Reception",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Air Conditioning",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Room Service & Cleanliness Standards",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Wheelchair Accessible",
+              "value": true
+            }
+          ],
           "containsPlace": ROOMS.filter(r => r.id === "deluxe-king" || r.id === "family").map(r => ({
             "@type": "HotelRoom",
             "name": r.name,

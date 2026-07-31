@@ -243,7 +243,7 @@ export default function ContactView() {
                     </div>
                     <div>
                       <span className="block font-bold text-maroon">Electronic Inquiries</span>
-                      <a href="mailto:rbshotelandlawm@gmail.com" className="text-xs text-saffron hover:underline block mt-0.5">{HOTEL_DETAILS.emails[0]}</a>
+                      <a href={`mailto:${HOTEL_DETAILS.emails[0]}`} className="text-xs text-saffron hover:underline block mt-0.5">{HOTEL_DETAILS.emails[0]}</a>
                     </div>
                   </div>
                 </div>

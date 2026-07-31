@@ -205,7 +205,7 @@ export default function Footer({ onPageChange }: FooterProps) {
               <Mail size={14} className="text-gold mt-1 shrink-0" />
               <div>
                 <span className="block font-semibold text-gold">Reservation Email</span>
-                <a href="mailto:rbshotelandlawm@gmail.com" className="hover:text-saffron transition-colors">rbshotelandlawm@gmail.com</a>
+                <a href={`mailto:${HOTEL_DETAILS.emails[0]}`} className="hover:text-saffron transition-colors">{HOTEL_DETAILS.emails[0]}</a>
               </div>
             </li>
             <li className="flex items-start gap-2.5">
