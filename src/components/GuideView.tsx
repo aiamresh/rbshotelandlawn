@@ -67,7 +67,7 @@ const BLOG_POSTS: BlogPost[] = [
         ]
       },
       {
-        heading: "VIP Entry, Aarti Passes & Special Access",
+        heading: "VIP Entry & Aarti Passes",
         content: "General entry is absolutely free, but standing in standard queues can take anywhere from 1 to 3 hours during weekends and festivals. To optimize your visit, you can opt for specialized services:",
         highlights: [
           "Free Aarti Passes: Can be booked on the official Shri Ram Janmabhoomi Teerth Kshetra portal up to 15 days in advance using any valid ID card.",
