@@ -30,10 +30,32 @@ export default function HomeView({ onPageChange }: HomeViewProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPilgrimsServed((prev) => (prev < 15000 ? prev + 350 : 15000));
-      setWeddingEvents((prev) => (prev < 180 ? prev + 5 : 180));
-      setStarRating((prev) => (prev < 4.9 ? parseFloat((prev + 0.1).toFixed(1)) : 4.9));
-    }, 25);
+      let completed = true;
+      setPilgrimsServed((prev) => {
+        if (prev < 15000) {
+          completed = false;
+          return Math.min(prev + 750, 15000);
+        }
+        return 15000;
+      });
+      setWeddingEvents((prev) => {
+        if (prev < 180) {
+          completed = false;
+          return Math.min(prev + 10, 180);
+        }
+        return 180;
+      });
+      setStarRating((prev) => {
+        if (prev < 4.9) {
+          completed = false;
+          return 4.9;
+        }
+        return 4.9;
+      });
+      if (completed) {
+        clearInterval(interval);
+      }
+    }, 40);
     return () => clearInterval(interval);
   }, []);
 
