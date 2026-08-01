@@ -248,7 +248,7 @@ Overall it was a good experience with my friends 🧡 had a great eve..`,
           "image": "https://lh3.googleusercontent.com/d/1KxYQ4corFCUcdbe1XeBnHBiJq_wkP8c3",
           "description": "Luxurious comfort, premium rooms, suites, 100% pure vegetarian dining, grand banquets, and extensive wedding lawns near Shri Ram Janmabhoomi Temple, Ayodhya.",
           "telephone": "+917570000335",
-          "email": "info@rbshotelandlawn.com",
+          "email": "rbshotelandlawn@gmail.com",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "I.E.T. Campus, Faizabad Bypass Highway",
