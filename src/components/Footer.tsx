@@ -20,7 +20,7 @@ export default function Footer({ onPageChange }: FooterProps) {
     "Dining",
     "Wedding Venue",
     "Kitty Party & Social Events",
-    "Shakun (Banquet Hall)",
+    "Banquet Hall",
     "Affordable Catering Services",
     "Wedding Lawn",
   ];

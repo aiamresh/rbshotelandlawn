@@ -336,7 +336,7 @@ export default function PoliciesView() {
       content: (
         <div className="space-y-3 font-sans text-sm md:text-base text-dark-brown/85">
           <p>
-            Bookings for the grand wedding lawns, Siddharth Banquet Hall, and conference venues require formal contracts:
+            Bookings for the grand wedding lawns, Banquet Hall, and conference venues require formal contracts:
           </p>
           <ul className="list-disc list-inside space-y-1 pl-2 text-dark-brown/75">
             <li>An initial non-refundable deposit of 25% is required to secure the venue date.</li>
