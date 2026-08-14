@@ -64,7 +64,7 @@ export const HOTEL_DETAILS = {
   location: "Ayodhya, Uttar Pradesh",
   address: "I.E.T. Campus, Faizabad, Uttar Pradesh 224133",
   phoneNumbers: ["+91 7570000335", "+91 7267876600", "+91 9838430000"],
-  emails: ["rbshotelandlawn@gmail.com", "info@rbshotelandlawn.com"],
+  emails: ["info@rbshotelandlawn.com", "rbshotelandlawn@gmail.com"],
   whatsapp: "+917570000335",
   mapCoordinates: { lat: 26.7922, lng: 82.2014 },
 };
